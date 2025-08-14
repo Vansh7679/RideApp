@@ -1,43 +1,57 @@
+import { View, Text } from 'react-native';
 import { Tabs } from 'expo-router';
-import React from 'react';
-import { Platform } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { COLORS } from '@/constants/Theme';
 
-import { HapticTab } from '@/components/HapticTab';
-import { IconSymbol } from '@/components/ui/IconSymbol';
-import TabBarBackground from '@/components/ui/TabBarBackground';
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
-
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
+export default function Tablayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-        tabBarButton: HapticTab,
-        tabBarBackground: TabBarBackground,
-        tabBarStyle: Platform.select({
-          ios: {
-            // Use a transparent background on iOS to show the blur effect
-            position: 'absolute',
-          },
-          default: {},
-        }),
-      }}>
+        tabBarShowLabel: false,
+        headerShown:false,
+        tabBarInactiveTintColor:COLORS.grey,
+        tabBarActiveTintColor:COLORS.primary,
+        tabBarStyle:{
+          backgroundColor:"black",
+          borderTopWidth:0,
+          position:"absolute",
+          elevation:0,
+          height:40,
+          paddingBottom:8
+        }
+      }}
+    >
       <Tabs.Screen
         name="index"
+        options={{ tabBarIcon: ({ size, color }) => <Ionicons name="home" size={size} color={color} /> }}
+      />
+      <Tabs.Screen
+        name="Ride"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          tabBarIcon: ({ size, color, focused }) => (
+            <MaterialCommunityIcons
+              name="bike"
+              size={size}
+              color={ color} 
+            />
+          )
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="Search"
+        options={{ tabBarIcon: ({ size,color }) => <Ionicons name="search" size={size} color={color} /> }}
+      />
+      <Tabs.Screen
+        name="Help"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          tabBarIcon: ({ size, color }) => (
+            <MaterialCommunityIcons
+              name="headset" 
+              size={size}
+              color={color}
+            />
+          )
         }}
       />
     </Tabs>

@@ -13,5 +13,5 @@
     "**/*.tsx",
     ".expo/types/**/*.ts",
     "expo-env.d.ts"
-  ]
+, "app/(auth)/login.tsx", "app/(auth)/register.tsx", "app/(tabs)/_layout.tsx", "app/(tabs)/index.tsx", "app/layout.jsx", "provider/ClerkAndConvexProvider.tsx", "app/hooks/useAutoLogin.ts", "styles/auth.styles.ts", "components/intialLayout.jsx", "app/index.tsx", "constants/Theme.ts", "convex/auth.config.js", "convex/http.ts", "convex/schema.ts", "convex/matchRides.ts", "convex/users.ts", "app/(tabs)/Ride.tsx", "app/(ride)/Ridedetails.jsx", "app/(ride)/offer.tsx", "app/(ride)/details.tsx", "app/(ride)/take.tsx", "app/(tabs)/Search.tsx", "app/(tabs)/Help.tsx", "app/Profile.tsx"  ]
 }
